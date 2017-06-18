@@ -10,7 +10,7 @@
             {{ $totalpostscount := len (where .Data.Pages "Section" "posts") }}
             {{ $latestpostscount := .Site.Params.latestpostscount | default $totalpostscount }}
             {{ if gt $latestpostscount 0 }}
-              <div class="page-heading">{{ i18n "latestPosts" }}</div>
+              <div class="page-heading">Latest Posts</div>
                 <ul>
                     {{ range (first $latestpostscount (where .Data.Pages.ByPublishDate "Section" "posts")) }}
                         {{ partial "li.html" . }}
