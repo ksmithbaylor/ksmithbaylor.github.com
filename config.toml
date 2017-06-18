@@ -8,6 +8,7 @@ publishdir          = "public"
 theme               = "cocoa"
 author              = "Kevin"
 title               = "Kevin J. Smith"
+bloggroupby         = "year"
 pygmentsuseclasses  = true
 # disqusshortname   = "cocoaexamplesite" # Comment out to disable Disqus.
 pluralizelisttitles = false
@@ -20,7 +21,7 @@ post  = "posts/:slug/"
 name                   = "Blog"
 weight                 = -120
 identifier             = "posts"
-url                    = "/"
+url                    = "/posts"
 
 [[menu.main]]
 name                   = "About"
@@ -36,6 +37,7 @@ url                    = "/code/"
 
 [params]
 latestpostscount       = 5                             # how many posts to display on the home page
+bloggroupby            = "year"
 i18n_flags             = false                         # whether to display small country flags for available translations
 author                 = "Kevin J. Smith"
 cachebuster            = true                          # add the current unix timestamp in query string for cache busting css assets
