@@ -14,13 +14,13 @@ pluralizelisttitles = false
 
 [permalinks]
 fixed = ":title/"
-post  = "blog/:slug/"
+post  = "posts/:slug/"
 
 [[menu.main]]
 name                   = "Blog"
 weight                 = -120
-identifier             = "blog"
-url                    = "/blog"
+identifier             = "posts"
+url                    = "/"
 
 [[menu.main]]
 name                   = "About"
