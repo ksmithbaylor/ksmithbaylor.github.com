@@ -48,15 +48,13 @@ email                  = "ksmithbaylor@gmail.com"
 extracssfiles          = [ "/css/override.css" ]       # In your `static` directory, add/remove files as necessary.
 # faviconfile          = "img/leaf.ico"
 github                 = "//github.com/ksmithbaylor"
-highlightjs            = true
+highlightjs            = false
+prismjs                = true
 lang                   = "en"
 linkedin               = "//linkedin.com/in/ksmithbaylor"
 noshowreadtime         = false                         # if true, don't show "<x> minutes read" in posts
 # selfintro            = "My intro goes here"          # appears in the site header when set to a non-empty string
 twitter                = "//twitter.com/ksmithbaylor"
-# mastodon             = "//example.com/@you"
-# highlightjslanguages = ["go"]                        # additional languages not included in the "common" set
-highlightjsStyle       = "darcula"
 
 piwik                  = false                         # If true, Piwik integration is enabled
 # piwik_url            = "//www.example.com/piwik/"    # URL to your Piwik installation. Must End with a slash

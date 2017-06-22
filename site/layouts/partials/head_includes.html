@@ -11,6 +11,9 @@
 {{ end }}
 
 <!-- CSS -->
+{{ if .Site.Params.prismjs }}
+<link rel="stylesheet" href="/prism/prism.css" >
+{{ end }}
 
 {{ if .Site.Params.highlightjs }}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/{{ .Site.Params.highlightjsStyle | default "default" }}.min.css">
