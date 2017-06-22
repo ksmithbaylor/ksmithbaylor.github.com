@@ -1,7 +1,15 @@
-import webpack from "webpack";
-import path from "path";
+const webpack = require("webpack");
+const path = require("path");
 
-export default {
+const fail = (msg) => { throw new Error(msg); };
+
+const NODE_ENV = process.env.NODE_ENV;
+const OUTPUT_DIR = {
+  production: path.join(__dirname, "dist"),
+  development: path.join(__dirname, "site", "static")
+}[NODE_ENV] || fail("Invalid NODE_ENV");
+
+module.exports = {
   module: {
     rules: [
       {
@@ -26,10 +34,10 @@ export default {
 
   context: path.join(__dirname, "src"),
   entry: {
-    main: ["."]
+    main: ["promise-polyfill", "."]
   },
   output: {
-    path: path.join(__dirname, "dist"),
+    path: OUTPUT_DIR,
     publicPath: "/",
     filename: "[name].js"
   },
