@@ -34,7 +34,7 @@ gulp.task("server", ["hugo", "js"], () => {
       baseDir: "./dist"
     }
   });
-  gulp.watch("./src/js/**/*.js", ["js"]);
+  gulp.watch("./src/**/*", ["js"]);
   gulp.watch("./site/**/*", ["hugo"]);
 });
 
