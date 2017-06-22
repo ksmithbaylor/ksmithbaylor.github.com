@@ -7,7 +7,7 @@ const NODE_ENV = process.env.NODE_ENV;
 const OUTPUT_DIR = {
   production: path.join(__dirname, "dist"),
   development: path.join(__dirname, "site", "static")
-}[NODE_ENV] || fail("Invalid NODE_ENV");
+}[NODE_ENV || "development"] || fail("Invalid NODE_ENV");
 
 module.exports = {
   module: {
@@ -27,15 +27,12 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.ProvidePlugin({
-      "fetch": "imports-loader?this=>global!exports?global.fetch!whatwg-fetch"
-    }),
     new webpack.optimize.ModuleConcatenationPlugin()
   ],
 
   context: path.join(__dirname, "src"),
   entry: {
-    main: ["promise-polyfill", "."]
+    main: ["promise-polyfill", "whatwg-fetch", "."]
   },
   output: {
     path: OUTPUT_DIR,
