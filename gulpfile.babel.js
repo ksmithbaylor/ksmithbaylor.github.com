@@ -19,7 +19,7 @@ gulp.task("js", (cb) => {
   webpack(myConfig, (err, stats) => {
     if (err) throw new gutil.PluginError("webpack", err);
     gutil.log("Webpack output:");
-    gutil.log(stats.toString({
+    console.log(stats.toString({ // eslint-disable-line no-console
       colors: true,
       progress: true
     }));
@@ -43,11 +43,11 @@ function buildSite(cb, extraArgs) {
   gutil.log("COMMAND", command);
 
   return cp.exec(command, (err, stdin, stderr) => {
+    gutil.log("Hugo output:");
+    console.log(stdin); //eslint-disable-line no-console
+
     if (err) {
       browserSync.notify("Hugo build failed :(");
-      gutil.log("Hugo output:");
-      gutil.log(stdin);
-      gutil.log(stderr);
       cb();
     } else {
       browserSync.reload();
