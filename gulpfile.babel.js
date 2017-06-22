@@ -6,11 +6,9 @@ import webpack from "webpack";
 import webpackConfig from "./webpack.conf";
 
 const browserSync = BrowserSync.create();
-const hugoBin = "hugo";
-const defaultArgs = ["-d", "../dist", "-s", "site", "-v"];
 
 gulp.task("hugo", (cb) => buildSite(cb));
-gulp.task("hugo-preview", (cb) => buildSite(cb, ["--buildDrafts", "--buildFuture"]));
+gulp.task("hugo-preview", (cb) => buildSite(cb, "--buildDrafts --buildFuture"));
 
 gulp.task("build", ["js", "hugo"]);
 gulp.task("build-preview", ["js", "hugo-preview"]);
@@ -20,7 +18,8 @@ gulp.task("js", (cb) => {
 
   webpack(myConfig, (err, stats) => {
     if (err) throw new gutil.PluginError("webpack", err);
-    gutil.log("[webpack]", stats.toString({
+    gutil.log("Webpack output:");
+    gutil.log(stats.toString({
       colors: true,
       progress: true
     }));
@@ -39,16 +38,20 @@ gulp.task("server", ["hugo", "js"], () => {
   gulp.watch("./site/**/*", ["hugo"]);
 });
 
-function buildSite(cb, options) {
-  const args = options ? defaultArgs.concat(options) : defaultArgs;
+function buildSite(cb, extraArgs) {
+  const command = `hugo -d ../dist -s site -b http://localhost:3001 --cleanDestinationDir ${extraArgs || ""}`.trim();
+  gutil.log("COMMAND", command);
 
-  return cp.spawn(hugoBin, args, {stdio: "inherit"}).on("close", (code) => {
-    if (code === 0) {
-      browserSync.reload();
+  return cp.exec(command, (err, stdin, stderr) => {
+    if (err) {
+      browserSync.notify("Hugo build failed :(");
+      gutil.log("Hugo output:");
+      gutil.log(stdin);
+      gutil.log(stderr);
       cb();
     } else {
-      browserSync.notify("Hugo build failed :(");
-      cb("Hugo build failed");
+      browserSync.reload();
+      cb();
     }
   });
 }
