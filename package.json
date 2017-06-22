@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev:hugo": "hugo -s site --buildDrafts --buildFuture server",
-    "dev:webpack": "NODE_ENV=development webpack -w",
+    "dev:webpack": "NODE_ENV=development webpack -w --display-optimization-bailout",
     "start": "run-p -l dev:*",
     "build:webpack": "NODE_ENV=production webpack",
     "build:hugo": "hugo -d ../dist -s site",
@@ -33,7 +33,7 @@
     "npm-run-all": "^4.0.2",
     "promise-polyfill": "^6.0.2",
     "url-loader": "^0.5.7",
-    "webpack": "^2.6.0",
+    "webpack": "^3.0.0",
     "whatwg-fetch": "^1.0.0"
   }
 }

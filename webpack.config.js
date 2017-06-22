@@ -29,7 +29,8 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       "fetch": "imports-loader?this=>global!exports?global.fetch!whatwg-fetch"
-    })
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin()
   ],
 
   context: path.join(__dirname, "src"),
