@@ -6,13 +6,13 @@
   "scripts": {
     "dev:hugo": "hugo -s site --buildDrafts --buildFuture server",
     "dev:rollup": "rollup -c -w",
-    "start": "run-p -l dev:*",
+    "start": "run-p -sl dev:*",
     "build:rollup": "NODE_ENV=production rollup -c",
     "build:hugo": "hugo -d ../dist -s site",
-    "build": "run-p build:*",
+    "build": "run-p -s build:*",
     "preview:hugo": "hugo -d ../dist -s site -b http://localhost:8080",
     "preview:serve": "http-server -p 8080 dist",
-    "preview": "run-s preview:hugo build:rollup preview:serve",
+    "preview": "run-s -s preview:hugo build:rollup preview:serve",
     "lint": "eslint src"
   },
   "author": "",
