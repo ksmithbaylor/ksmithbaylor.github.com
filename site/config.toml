@@ -10,7 +10,7 @@ author              = "Kevin"
 title               = "Kevin J. Smith"
 bloggroupby         = "year"
 pygmentsuseclasses  = true
-# disqusshortname   = "cocoaexamplesite" # Comment out to disable Disqus.
+disqusshortname     = "kevinjs" # Comment out to disable Disqus.
 pluralizelisttitles = false
 
 [permalinks]
