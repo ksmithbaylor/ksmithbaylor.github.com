@@ -1,3 +1,31 @@
+/* Header font */
+section.header .name,
+section.header h3.self-intro,
+section.header nav,
+section.main .content .title-container .initials,
+section.main .content .page-heading,
+section.main .container.f04 .content .num,
+section.main .container .content .no-bullet .date,
+section.main .content .markdown h1,
+section.main .content .markdown h2,
+section.main .content .markdown h3,
+section.main .content .markdown h4,
+section.main .content .markdown h5,
+section.main .content .markdown h6 {
+  font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+/* Main font */
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+/* Monospace font */
+section.main .content .markdown code,
+section.main .content .markdown pre {
+  font-family: 'Operator Mono', 'Ubuntu Mono', 'Inconsolata', 'Fira Code', 'Menlo', monospace;
+}
+
 section.header .name {
   font-size: 26px;
 }
